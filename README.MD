@@ -9,7 +9,7 @@ Check out the [demo](https://abacritt.github.io/angular4-social-login/).
 ### Install via npm 
 
 ```sh
-npm install --save angular4-social-login
+npm install --save ng4-social-login
 ```
 
 ### Import the module
