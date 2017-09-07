@@ -4,4 +4,5 @@ export class SocialUser {
   email: string;
   name: string;
   photoUrl: string;
+  token?: string;
 }
