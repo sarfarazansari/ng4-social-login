@@ -1,6 +1,6 @@
 {
-  "name": "ng4social-test",
-  "version": "0.0.0",
+  "name": "ng4-social-login-demo",
+  "version": "1.0.0",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -21,8 +21,6 @@
     "@angular/platform-browser": "^4.3.2",
     "@angular/platform-browser-dynamic": "^4.3.2",
     "@angular/router": "^4.3.2",
-    "angular2-social-login": "^3.1.1",
-    "angular4-social-login": "^1.0.9",
     "core-js": "^2.4.1",
     "rxjs": "^5.1.0",
     "zone.js": "^0.8.16"

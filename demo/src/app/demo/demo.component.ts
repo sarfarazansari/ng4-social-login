@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
-import { AuthService } from "angular4-social-login";
-import { SocialUser } from "angular4-social-login";
-import { GoogleLoginProvider, FacebookLoginProvider } from "angular4-social-login";
+import {
+  SocialLoginModule, AuthService,
+  AuthServiceConfig, GoogleLoginProvider,
+  FacebookLoginProvider, SocialUser
+} from '../social/';
 
 @Component({
   selector: 'app-demo',
@@ -17,6 +19,7 @@ export class DemoComponent implements OnInit {
 
   ngOnInit() {
     this.authService.authState.subscribe((user) => {
+      console.log('user:', user);
       this.user = user;
     });
   }

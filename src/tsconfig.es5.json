@@ -21,8 +21,8 @@
     "annotateForClosureCompiler": true,
     "strictMetadataEmit": true,
     "skipTemplateCodegen": true,
-    "flatModuleOutFile": "angular4-social-login.js",
-    "flatModuleId": "angular4-social-login"
+    "flatModuleOutFile": "ng4-social-login.js",
+    "flatModuleId": "ng4-social-login"
   },
   "files": [
     "./index.ts"
