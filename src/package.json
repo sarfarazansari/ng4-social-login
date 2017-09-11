@@ -1,9 +1,9 @@
 {
   "name": "ng4-social-login",
-  "version": "1.0.0",
+  "version": "1.2.2",
   "repository": {
     "type": "git",
-    "url": "https://github.com/sarfarazansari/angular4-social-login"
+    "url": "https://github.com/sarfarazansari/ng4-social-login"
   },
   "author": {
     "name": "Sarfaraz Ansari",
@@ -13,6 +13,7 @@
     "angular",
     "angular4",
     "ng4",
+    "social authentication",
     "angular-social-login",
     "social-authentication",
     "social-login",
@@ -21,7 +22,7 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/sarfarazansari/angular4-social-login/issues"
+    "url": "https://github.com/sarfarazansari/ng4-social-login/issues"
   },
   "main": "ng4-social-login.umd.js",
   "module": "ng4-social-login.js",

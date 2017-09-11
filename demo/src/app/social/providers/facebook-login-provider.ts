@@ -12,7 +12,7 @@ export class FacebookLoginProvider extends BaseLoginProvider {
   initialize(): Promise<SocialUser> {
     return new Promise((resolve, reject) => {
       this.loadScript(FacebookLoginProvider.PROVIDER_ID,
-        '//connect.facebook.net/en_US/sdk.js',
+        'https://connect.facebook.net/en_US/sdk.js',
         () => {
           FB.init({
             appId: this.clientId,

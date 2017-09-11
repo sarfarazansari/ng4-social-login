@@ -12,7 +12,7 @@ export class LinkedinLoginProvider extends BaseLoginProvider {
   initialize(): Promise<SocialUser> {
     return new Promise((resolve, reject) => {
       this.loadScript(LinkedinLoginProvider.PROVIDER_ID,
-        '//platform.linkedin.com/in.js',
+        'https://platform.linkedin.com/in.js',
         () => {
           IN.init({
             api_key: this.clientId,
