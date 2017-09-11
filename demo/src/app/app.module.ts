@@ -4,8 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { DemoComponent } from './demo/demo.component';
+import { LoginWidgetComponent } from './widget/login.widget.component';
 
 import {
   SocialLoginModule, AuthServiceConfig,
@@ -15,15 +14,15 @@ import {
 let config = new AuthServiceConfig([
   {
     id: GoogleLoginProvider.PROVIDER_ID,
-    provider: new GoogleLoginProvider("624796833023-clhjgupm0pu6vgga7k5i5bsfp6qp6egh.apps.googleusercontent.com")
+    provider: new GoogleLoginProvider("GOOGLE_KEY")
   },
   {
     id: FacebookLoginProvider.PROVIDER_ID,
-    provider: new FacebookLoginProvider("561602290896109")
+    provider: new FacebookLoginProvider("FACEBOOK_KEY")
   },
   {
     id: LinkedinLoginProvider.PROVIDER_ID,
-    provider: new LinkedinLoginProvider("817roify24ig8g")
+    provider: new LinkedinLoginProvider("LINKEDIN_KEY")
   }
 ]);
 
@@ -34,8 +33,7 @@ export function provideConfig() {
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
-    DemoComponent
+    LoginWidgetComponent
   ],
   imports: [
     BrowserModule,

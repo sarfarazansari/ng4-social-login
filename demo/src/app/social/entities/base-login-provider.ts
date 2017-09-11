@@ -1,5 +1,5 @@
 import { LoginProvider } from './login-provider';
-import { SocialUser } from './user';
+import { SocialUser, loginProviderClass } from './user';
 
 export abstract class BaseLoginProvider implements LoginProvider {
 
@@ -9,12 +9,16 @@ export abstract class BaseLoginProvider implements LoginProvider {
   abstract signIn(): Promise<SocialUser>;
   abstract signOut(): Promise<any>;
 
-  loadScript(id: string, src: string, onload: any): void {
-      if (document.getElementById(id)) { return; }
+  loadScript(obj: loginProviderClass, onload: any): void {
+      if (document.getElementById(obj.name)) { return; }
       let signInJS = document.createElement('script');
       signInJS.async = true;
-      signInJS.src = src;
+      signInJS.src = obj.url;
       signInJS.onload = onload;
+      if (obj.name === 'LINKEDIN'){
+        signInJS.async = false;
+        signInJS.text = ("api_key: " + obj.id).replace("\"", "");
+      }
       document.head.appendChild(signInJS);
   }
 }

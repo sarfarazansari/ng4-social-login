@@ -1,19 +1,23 @@
 import { BaseLoginProvider } from '../entities/base-login-provider';
-import { SocialUser } from '../entities/user';
+import { SocialUser, loginProviderClass } from '../entities/user';
 
 declare let FB: any;
 
 export class FacebookLoginProvider extends BaseLoginProvider {
 
   public static readonly PROVIDER_ID = 'FACEBOOK';
+  public loginProviderObj: loginProviderClass = new loginProviderClass();
 
-  constructor(private clientId: string) { super(); }
+  constructor(private clientId: string) {
+    super();
+    this.loginProviderObj.id = clientId;
+    this.loginProviderObj.name = 'FACEBOOK';
+    this.loginProviderObj.url = 'https://connect.facebook.net/en_US/sdk.js';
+  }
 
   initialize(): Promise<SocialUser> {
     return new Promise((resolve, reject) => {
-      this.loadScript(FacebookLoginProvider.PROVIDER_ID,
-        'https://connect.facebook.net/en_US/sdk.js',
-        () => {
+      this.loadScript(this.loginProviderObj, () => {
           FB.init({
             appId: this.clientId,
             autoLogAppEvents: true,

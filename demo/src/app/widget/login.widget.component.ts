@@ -7,11 +7,11 @@ import {
 } from '../social/';
 
 @Component({
-  selector: 'app-demo',
-  templateUrl: './demo.component.html',
-  styleUrls: ['./demo.component.css']
+  selector: 'login-widget',
+  templateUrl: './login.widget.component.html',
+  styleUrls: ['./login.widget.component.css']
 })
-export class DemoComponent implements OnInit {
+export class LoginWidgetComponent implements OnInit {
 
   user: SocialUser;
 
