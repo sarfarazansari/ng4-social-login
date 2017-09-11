@@ -1,11 +1,11 @@
 {
   "name": "ng4-social-login",
-  "version": "1.2.2",
+  "version": "1.3.0",
   "scripts": {
     "build": "gulp build",
     "build:watch": "gulp",
     "docs": "npm run docs:build",
-    "docs:build": "compodoc -p tsconfig.json -n angular4-social-login -d docs --hideGenerator",
+    "docs:build": "compodoc -p tsconfig.json -n ng4-social-login -d docs --hideGenerator",
     "docs:serve": "npm run docs:build -- -s",
     "docs:watch": "npm run docs:build -- -s -w",
     "lint": "tslint --type-check --project tsconfig.json src/**/*.ts",

@@ -7,6 +7,9 @@ src/*.js
 src/*.map
 src/*.d.ts
 
+# private use of  config keys in demo
+demo/src/app/social.config.ts
+
 # JetBrains
 .idea
 .project

@@ -3,7 +3,7 @@
 This is the refrenced library from [angular4-social-login](https://abacritt.github.io/angular4-social-login/).
 
 Social login and authentication module for Angular 4. 
-Supports authentication with **Google** and **Facebook**.
+Supports authentication with **Google**, **Linkedin** and **Facebook**.
 
 ## Getting started
 
@@ -18,17 +18,26 @@ npm install --save ng4-social-login
 In your `AppModule`, import the `SocialLoginModule`
 
 ```javascript
-import { SocialLoginModule, AuthServiceConfig } from "ng4-social-login";
-import { GoogleLoginProvider, FacebookLoginProvider } from "ng4-social-login";
+import {
+  SocialLoginModule, 
+  AuthServiceConfig,
+  GoogleLoginProvider, 
+  FacebookLoginProvider, 
+  LinkedinLoginProvider
+} from 'ng4-social-login';
 
 let config = new AuthServiceConfig([
   {
     id: GoogleLoginProvider.PROVIDER_ID,
-    provider: new GoogleLoginProvider("Google-OAuth-Client-Id")
+    provider: new GoogleLoginProvider('Google-OAuth-Client-Id')
   },
   {
     id: FacebookLoginProvider.PROVIDER_ID,
-    provider: new FacebookLoginProvider("Facebook-App-Id")
+    provider: new FacebookLoginProvider('Facebook-App-Id')
+  },
+  {
+    id: LinkedinLoginProvider.PROVIDER_ID,
+    provider: new LinkedinLoginProvider('LINKEDIN_CLIENT_ID')
   }
 ]);
 
@@ -49,8 +58,12 @@ export class AppModule { }
 ### Sign in and out users
 
 ```javascript
-import { AuthService } from "ng4-social-login";
-import { FacebookLoginProvider, GoogleLoginProvider } from "ng4-social-login";
+import { 
+  AuthService 
+  FacebookLoginProvider, 
+  GoogleLoginProvider,
+  LinkedinLoginProvider
+} from 'ng4-social-login';
 
 @Component({
   selector: 'app-demo',
@@ -69,6 +82,10 @@ export class DemoComponent implements OnInit {
     this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);
   }
 
+  signInWithLinkedIN(): void {
+    this.authService.signIn(LinkedinLoginProvider.PROVIDER_ID);
+  }
+
   signOut(): void {
     this.authService.signOut();
   }
@@ -81,8 +98,8 @@ export class DemoComponent implements OnInit {
 You are notified when user logs in or logs out. You receive a `SocialUser` object when the user logs in and a `null` when the user logs out. `SocialUser` object contains basic user information such as name, email, photo URL, etc.
 
 ```javascript
-import { AuthService } from "ng4-social-login";
-import { SocialUser } from "ng4-social-login";
+import { AuthService } from 'ng4-social-login';
+import { SocialUser } from 'ng4-social-login';
 
 @Component({
   selector: 'app-demo',
@@ -109,7 +126,7 @@ export class DemoComponent implements OnInit {
 ### Display the user information
 
 ```html
-<img src="{{ user.photoUrl }}">
+<img src='{{ user.photoUrl }}'>
 <div>
   <h4>{{ user.name }}</h4>
   <p>{{ user.email }}</p>
