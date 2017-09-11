@@ -9,7 +9,7 @@ import { DemoComponent } from './demo/demo.component';
 
 import {
   SocialLoginModule, AuthServiceConfig,
-  GoogleLoginProvider, FacebookLoginProvider
+  GoogleLoginProvider, FacebookLoginProvider, LinkedinLoginProvider
 } from './social/';
 
 let config = new AuthServiceConfig([
@@ -17,9 +17,13 @@ let config = new AuthServiceConfig([
     id: GoogleLoginProvider.PROVIDER_ID,
     provider: new GoogleLoginProvider("624796833023-clhjgupm0pu6vgga7k5i5bsfp6qp6egh.apps.googleusercontent.com")
   },
+  // {
+  //   id: FacebookLoginProvider.PROVIDER_ID,
+  //   provider: new FacebookLoginProvider("561602290896109")
+  // },
   {
-    id: FacebookLoginProvider.PROVIDER_ID,
-    provider: new FacebookLoginProvider("561602290896109")
+    id: LinkedinLoginProvider.PROVIDER_ID,
+    provider: new LinkedinLoginProvider("817roify24ig8g")
   }
 ]);
 

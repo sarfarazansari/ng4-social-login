@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import {
   SocialLoginModule, AuthService,
   AuthServiceConfig, GoogleLoginProvider,
-  FacebookLoginProvider, SocialUser
+  FacebookLoginProvider, SocialUser, LinkedinLoginProvider
 } from '../social/';
 
 @Component({
@@ -30,6 +30,10 @@ export class DemoComponent implements OnInit {
 
   signInWithFB(): void {
     this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);
+  }
+
+  signInWithIN(): void{
+    this.authService.signIn(LinkedinLoginProvider.PROVIDER_ID);
   }
 
   signOut(): void {
