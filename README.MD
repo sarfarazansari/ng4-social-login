@@ -1,9 +1,9 @@
 # ng4 Social Login
 
-This is the forked library from [angular4-social-login](https://abacritt.github.io/angular4-social-login/).
-Social login and authentication module for Angular 4. Supports authentication with **Google** and **Facebook**. Can be extended to other providers also.
+This is the refrenced library from [angular4-social-login](https://abacritt.github.io/angular4-social-login/).
 
-Check out the [demo](https://abacritt.github.io/angular4-social-login/).
+Social login and authentication module for Angular 4. 
+Supports authentication with **Google** and **Facebook**.
 
 ## Getting started
 
@@ -120,9 +120,17 @@ export class DemoComponent implements OnInit {
 
 If you are facing issue in building your app with AoT, check [this document](https://github.com/sarfarazansari/angular4-social-login/blob/master/README-AOT.md).
 
-## Running the demo app
+## Running the demo app on locally
 
 ```sh
 npm run build
 cd demo && ng serve
+```
+
+## Contributing to project
+```sh
+cd demo && ng serve
+make changes in files of  demo>src>app>social>
+when you completed feature/bug copy all .ts files of social folder into main src folder
+and push to repo. rest of things I\'ll take care
 ```
