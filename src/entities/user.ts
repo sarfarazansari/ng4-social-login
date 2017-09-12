@@ -7,13 +7,13 @@ export class SocialUser {
   token?: string;
 }
 
-export class loginProviderClass {
+export class LoginProviderClass {
   name: string;
   id: string;
   url: string;
 }
 
-export class linkedInResponse {
+export class LinkedInResponse {
   emailAddress: string;
   firstName: string;
   id: string;

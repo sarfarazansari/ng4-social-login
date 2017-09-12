@@ -1,12 +1,12 @@
 import { BaseLoginProvider } from '../entities/base-login-provider';
-import { SocialUser, loginProviderClass } from '../entities/user';
+import { SocialUser, LoginProviderClass } from '../entities/user';
 
 declare let FB: any;
 
 export class FacebookLoginProvider extends BaseLoginProvider {
 
   public static readonly PROVIDER_ID = 'FACEBOOK';
-  public loginProviderObj: loginProviderClass = new loginProviderClass();
+  public loginProviderObj: LoginProviderClass = new LoginProviderClass();
 
   constructor(private clientId: string) {
     super();
@@ -29,8 +29,8 @@ export class FacebookLoginProvider extends BaseLoginProvider {
 
           FB.getLoginStatus(function (response: any) {
             if (response.status === 'connected') {
-              FB.api('/me?fields=name,email,picture', (response: any) => {
-                resolve(this.drawUser(response));
+              FB.api('/me?fields=name,email,picture', (res: any) => {
+                resolve(this.drawUser(res));
               });
             }
           });
@@ -38,7 +38,7 @@ export class FacebookLoginProvider extends BaseLoginProvider {
     });
   }
 
-  drawUser(response: any): SocialUser{
+  drawUser(response: any): SocialUser {
     let user: SocialUser = new SocialUser();
     user.id = response.id;
     user.name = response.name;
@@ -51,8 +51,8 @@ export class FacebookLoginProvider extends BaseLoginProvider {
     return new Promise((resolve, reject) => {
       FB.login((response: any) => {
         if (response.authResponse) {
-          FB.api('/me?fields=name,email,picture', (response: any) => {
-            resolve(this.drawUser(response));
+          FB.api('/me?fields=name,email,picture', (res: any) => {
+            resolve(this.drawUser(res));
           });
         }
       }, { scope: 'email,public_profile' });

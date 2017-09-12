@@ -1,2 +1,2 @@
 export { LoginProvider } from './login-provider';
-export { SocialUser, loginProviderClass, linkedInResponse } from './user';
+export { SocialUser, LoginProviderClass, LinkedInResponse } from './user';

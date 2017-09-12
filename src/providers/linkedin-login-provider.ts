@@ -1,12 +1,12 @@
 import { BaseLoginProvider } from '../entities/base-login-provider';
-import { SocialUser, loginProviderClass, linkedInResponse } from '../entities/user';
+import { SocialUser, LoginProviderClass, LinkedInResponse } from '../entities/user';
 
 declare let IN: any;
 
 export class LinkedinLoginProvider extends BaseLoginProvider {
 
   public static readonly PROVIDER_ID = 'LINKEDIN';
-  public loginProviderObj: loginProviderClass = new loginProviderClass();
+  public loginProviderObj: LoginProviderClass = new LoginProviderClass();
 
   constructor(private clientId: string) {
     super();
@@ -26,7 +26,7 @@ export class LinkedinLoginProvider extends BaseLoginProvider {
 
           IN.Event.on(IN, 'auth', () => {
             if (IN.User.isAuthorized()) {
-              IN.API.Raw('/people/~:(id,first-name,last-name,email-address,picture-url)').result( (res: linkedInResponse) => {
+              IN.API.Raw('/people/~:(id,first-name,last-name,email-address,picture-url)').result( (res: LinkedInResponse) => {
                 resolve(this.drawUser(res));
               });
             }
@@ -42,7 +42,7 @@ export class LinkedinLoginProvider extends BaseLoginProvider {
     });
   }
 
-  drawUser(response: linkedInResponse): SocialUser{
+  drawUser(response: LinkedInResponse): SocialUser {
     let user: SocialUser = new SocialUser();
     user.id = response.emailAddress;
     user.name = response.firstName + ' ' + response.lastName;
@@ -54,7 +54,7 @@ export class LinkedinLoginProvider extends BaseLoginProvider {
   signIn(): Promise<SocialUser> {
     return new Promise((resolve, reject) => {
       IN.User.authorize( () => {
-        IN.API.Raw('/people/~:(id,first-name,last-name,email-address,picture-url)').result( (res: linkedInResponse) => {
+        IN.API.Raw('/people/~:(id,first-name,last-name,email-address,picture-url)').result( (res: LinkedInResponse) => {
           resolve(this.drawUser(res));
         });
       });

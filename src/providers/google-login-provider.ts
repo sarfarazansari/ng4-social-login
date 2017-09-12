@@ -1,12 +1,12 @@
 import { BaseLoginProvider } from '../entities/base-login-provider';
-import { SocialUser, loginProviderClass } from '../entities/user';
+import { SocialUser, LoginProviderClass } from '../entities/user';
 
 declare let gapi: any;
 
 export class GoogleLoginProvider extends BaseLoginProvider {
 
   public static readonly PROVIDER_ID = 'GOOGLE';
-  public loginProviderObj: loginProviderClass = new loginProviderClass();
+  public loginProviderObj: LoginProviderClass = new LoginProviderClass();
   private auth2: any;
 
   constructor(private clientId: string) {
@@ -35,7 +35,7 @@ export class GoogleLoginProvider extends BaseLoginProvider {
     });
   }
 
-  drawUser(): SocialUser{
+  drawUser(): SocialUser {
     let user: SocialUser = new SocialUser();
     let profile = this.auth2.currentUser.get().getBasicProfile();
     let authResponseObj = this.auth2.currentUser.get().getAuthResponse(true);

@@ -1,28 +1,630 @@
 <!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Angular 4 Social Login</title>
-  <base href="/angular4-social-login/">
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>ng4-social-login</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+        <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+	    <link rel="stylesheet" href="./styles/style.css">
+    </head>
+    <body>
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
-    crossorigin="anonymous">
-  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
-    crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
-    crossorigin="anonymous"></script>
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="./" class="navbar-brand">ng4-social-login</a>
+            <button type="button" class="btn btn-default btn-menu fa fa-bars" id="btn-menu"></button>
+        </div>
 
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
-    crossorigin="anonymous">
+        <div class="xs-menu menu" id="mobile-menu">
+            <div id="book-search-input" role="search">
+                <input type="text" placeholder="Type to search">
+            </div>
+            <nav>
+            
+                <ul class="list">
+            
+                    <li class="title">
+                        <a href="./index.html">ng4-social-login</a>
+                    </li>
+            
+                    <li class="divider"></li>
+            
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="./index.html"><span class="fa fa-home"></span>Getting started</a>
+                        <ul class="links">
+                                <li class="link">
+                                    <a 
+                                        
+                                         href="./overview.html" 
+                                         href="./overview.html" 
+                                        >
+                                        <span class="fa fa-th"></span>Overview
+                                    </a>
+                                </li>
+                                <li class="link">
+                                  <a href="./index.html"  class="active" ><span class="fa fa-file-text-o"></span>README</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="./modules.html" >
+                            <div class="menu-toggler linked" data-toggle="collapse"
+                                    data-target="#xs-modules-links"
+                            >
+                                <span class="fa fa-archive"></span>
+                                <span class="link-name">Modules</span>
+                                <span class="fa fa-angle-down"></span>
+                            </div>
+                        </a>
+                        <ul class="links collapse "
+                                id="xs-modules-links"
+                            >
+                                <li class="link">
+                                    <a href="./modules/AppModule.html" >AppModule</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./modules/SocialLoginModule.html" >SocialLoginModule</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./modules/SocialLoginModule.html" >SocialLoginModule</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse"
+                                data-target="#xs-components-links"
+                            >
+                            <span class="fa fa-cogs"></span>
+                            <span>Components</span>
+                            <span class="fa fa-angle-down"></span>
+                        </div>
+                        <ul class="links collapse "
+                                id="xs-components-links"
+                            >
+                                <li class="link">
+                                    <a href="./components/AppComponent.html" >AppComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./components/LoginWidgetComponent.html" >LoginWidgetComponent</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse"
+                                data-target="#xs-classes-links"
+                            >
+                            <span class="fa fa-file-code-o"></span>
+                            <span>Classes</span>
+                            <span class="fa fa-angle-down"></span>
+                        </div>
+                        <ul class="links collapse "
+                                id="xs-classes-links"
+                            >
+                                <li class="link">
+                                    <a href="./classes/AuthServiceConfig.html" >AuthServiceConfig</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./classes/AuthServiceConfig.html" >AuthServiceConfig</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./classes/BaseLoginProvider.html" >BaseLoginProvider</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./classes/BaseLoginProvider.html" >BaseLoginProvider</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./classes/FacebookLoginProvider.html" >FacebookLoginProvider</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./classes/FacebookLoginProvider.html" >FacebookLoginProvider</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./classes/GoogleLoginProvider.html" >GoogleLoginProvider</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./classes/GoogleLoginProvider.html" >GoogleLoginProvider</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./classes/LinkedinLoginProvider.html" >LinkedinLoginProvider</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./classes/LinkedinLoginProvider.html" >LinkedinLoginProvider</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./classes/Ng4socialTestPage.html" >Ng4socialTestPage</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./classes/SocialUser.html" >SocialUser</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./classes/SocialUser.html" >SocialUser</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./classes/linkedInResponse.html" >linkedInResponse</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./classes/linkedInResponse.html" >linkedInResponse</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./classes/loginProviderClass.html" >loginProviderClass</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./classes/loginProviderClass.html" >loginProviderClass</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse"
+                                data-target="#xs-injectables-links"
+                            >
+                            <span class="fa fa-long-arrow-down"></span>
+                            <span>Injectables</span>
+                            <span class="fa fa-angle-down"></span>
+                        </div>
+                        <ul class="links collapse "
+                                id="xs-injectables-links"
+                            >
+                                <li class="link">
+                                    <a href="./injectables/AuthService.html" >AuthService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./injectables/AuthService.html" >AuthService</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse"
+                                data-target="#xs-interfaces-links"
+                            >
+                            <span class="fa fa-info"></span>
+                            <span>Interfaces</span>
+                            <span class="fa fa-angle-down"></span>
+                        </div>
+                        <ul class="links collapse "
+                                id="xs-interfaces-links"
+                            >
+                                <li class="link">
+                                    <a href="./interfaces/AuthServiceConfigItem.html" >AuthServiceConfigItem</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./interfaces/AuthServiceConfigItem.html" >AuthServiceConfigItem</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./interfaces/LoginProvider.html" >LoginProvider</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./interfaces/LoginProvider.html" >LoginProvider</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse"
+                                data-target="#xs-miscellaneous-links"
+                            >
+                            <span class="fa fa-cubes"></span>
+                            <span>Miscellaneous</span>
+                            <span class="fa fa-angle-down"></span>
+                        </div>
+                        <ul class="links collapse "
+                                id="xs-miscellaneous-links"
+                            >
+                                <li class="link">
+                                  <a href="./miscellaneous/functions.html" data-type="entity-link" >Functions</a>
+                                </li>
+                                <li class="link">
+                                  <a href="./miscellaneous/variables.html" data-type="entity-link" >Variables</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="./coverage.html" ><span class="fa fa-tasks"></span>Documentation coverage</a>
+                    </li>
+            
+            
+                </ul>
+            
+            </nav>
+        </div>
 
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.min.css" rel="stylesheet">
-</head>
-<body>
-  <app-root></app-root>
-<script type="text/javascript" src="inline.bundle.js"></script><script type="text/javascript" src="polyfills.bundle.js"></script><script type="text/javascript" src="styles.bundle.js"></script><script type="text/javascript" src="vendor.bundle.js"></script><script type="text/javascript" src="main.bundle.js"></script></body>
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <nav>
+                   
+                       <ul class="list">
+                   
+                           <li class="title">
+                               <a href="./index.html">ng4-social-login</a>
+                           </li>
+                   
+                           <li class="divider"></li>
+                   
+                               <div id="book-search-input" role="search">
+                                   <input type="text" placeholder="Type to search">
+                               </div>
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="./index.html"><span class="fa fa-home"></span>Getting started</a>
+                               <ul class="links">
+                                       <li class="link">
+                                           <a 
+                                               
+                                                href="./overview.html" 
+                                                href="./overview.html" 
+                                               >
+                                               <span class="fa fa-th"></span>Overview
+                                           </a>
+                                       </li>
+                                       <li class="link">
+                                         <a href="./index.html"  class="active" ><span class="fa fa-file-text-o"></span>README</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="./modules.html" >
+                                   <div class="menu-toggler linked" data-toggle="collapse"
+                                           data-target="#modules-links"
+                                   >
+                                       <span class="fa fa-archive"></span>
+                                       <span class="link-name">Modules</span>
+                                       <span class="fa fa-angle-down"></span>
+                                   </div>
+                               </a>
+                               <ul class="links collapse "
+                                       id="modules-links"
+                   >
+                                       <li class="link">
+                                           <a href="./modules/AppModule.html" >AppModule</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./modules/SocialLoginModule.html" >SocialLoginModule</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./modules/SocialLoginModule.html" >SocialLoginModule</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                           <li class="chapter">
+                               <div class="simple menu-toggler" data-toggle="collapse"
+                                       data-target="#components-links"
+                   >
+                                   <span class="fa fa-cogs"></span>
+                                   <span>Components</span>
+                                   <span class="fa fa-angle-down"></span>
+                               </div>
+                               <ul class="links collapse "
+                                       id="components-links"
+                   >
+                                       <li class="link">
+                                           <a href="./components/AppComponent.html" >AppComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./components/LoginWidgetComponent.html" >LoginWidgetComponent</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                           <li class="chapter">
+                               <div class="simple menu-toggler" data-toggle="collapse"
+                                       data-target="#classes-links"
+                   >
+                                   <span class="fa fa-file-code-o"></span>
+                                   <span>Classes</span>
+                                   <span class="fa fa-angle-down"></span>
+                               </div>
+                               <ul class="links collapse "
+                                       id="classes-links"
+                   >
+                                       <li class="link">
+                                           <a href="./classes/AuthServiceConfig.html" >AuthServiceConfig</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./classes/AuthServiceConfig.html" >AuthServiceConfig</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./classes/BaseLoginProvider.html" >BaseLoginProvider</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./classes/BaseLoginProvider.html" >BaseLoginProvider</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./classes/FacebookLoginProvider.html" >FacebookLoginProvider</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./classes/FacebookLoginProvider.html" >FacebookLoginProvider</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./classes/GoogleLoginProvider.html" >GoogleLoginProvider</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./classes/GoogleLoginProvider.html" >GoogleLoginProvider</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./classes/LinkedinLoginProvider.html" >LinkedinLoginProvider</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./classes/LinkedinLoginProvider.html" >LinkedinLoginProvider</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./classes/Ng4socialTestPage.html" >Ng4socialTestPage</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./classes/SocialUser.html" >SocialUser</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./classes/SocialUser.html" >SocialUser</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./classes/linkedInResponse.html" >linkedInResponse</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./classes/linkedInResponse.html" >linkedInResponse</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./classes/loginProviderClass.html" >loginProviderClass</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./classes/loginProviderClass.html" >loginProviderClass</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                           <li class="chapter">
+                               <div class="simple menu-toggler" data-toggle="collapse"
+                                       data-target="#injectables-links"
+                   >
+                                   <span class="fa fa-long-arrow-down"></span>
+                                   <span>Injectables</span>
+                                   <span class="fa fa-angle-down"></span>
+                               </div>
+                               <ul class="links collapse "
+                                       id="injectables-links"
+                   >
+                                       <li class="link">
+                                           <a href="./injectables/AuthService.html" >AuthService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./injectables/AuthService.html" >AuthService</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                           <li class="chapter">
+                               <div class="simple menu-toggler" data-toggle="collapse"
+                                       data-target="#interfaces-links"
+                   >
+                                   <span class="fa fa-info"></span>
+                                   <span>Interfaces</span>
+                                   <span class="fa fa-angle-down"></span>
+                               </div>
+                               <ul class="links collapse "
+                                       id="interfaces-links"
+                   >
+                                       <li class="link">
+                                           <a href="./interfaces/AuthServiceConfigItem.html" >AuthServiceConfigItem</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./interfaces/AuthServiceConfigItem.html" >AuthServiceConfigItem</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./interfaces/LoginProvider.html" >LoginProvider</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./interfaces/LoginProvider.html" >LoginProvider</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                           <li class="chapter">
+                               <div class="simple menu-toggler" data-toggle="collapse"
+                                       data-target="#miscellaneous-links"
+                   >
+                                   <span class="fa fa-cubes"></span>
+                                   <span>Miscellaneous</span>
+                                   <span class="fa fa-angle-down"></span>
+                               </div>
+                               <ul class="links collapse "
+                                       id="miscellaneous-links"
+                   >
+                                       <li class="link">
+                                         <a href="./miscellaneous/functions.html" data-type="entity-link" >Functions</a>
+                                       </li>
+                                       <li class="link">
+                                         <a href="./miscellaneous/variables.html" data-type="entity-link" >Variables</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="./coverage.html" ><span class="fa fa-tasks"></span>Documentation coverage</a>
+                           </li>
+                   
+                   
+                       </ul>
+                   
+                   </nav>
+               </div>
+               <div class="content getting-started">
+                   <div class="content-data">
+
+<h1 id="ng4-social-login">ng4 Social Login</h1>
+<p>This is the refrenced library from <a href="https://abacritt.github.io/angular4-social-login/">angular4-social-login</a>.</p>
+<p>Social login and authentication module for Angular 4. 
+Supports authentication with <strong>Google</strong>, <strong>Linkedin</strong> and <strong>Facebook</strong>.</p>
+<h2 id="getting-started">Getting started</h2>
+<h3 id="install-via-npm">Install via npm</h3>
+<pre class="line-numbers"><code class="language-sh">npm install --save ng4-social-login</code></pre><h3 id="import-the-module">Import the module</h3>
+<p>In your <code>AppModule</code>, import the <code>SocialLoginModule</code></p>
+<pre class="line-numbers"><code class="language-javascript">import {
+  SocialLoginModule, 
+  AuthServiceConfig,
+  GoogleLoginProvider, 
+  FacebookLoginProvider, 
+  LinkedinLoginProvider
+} from &#39;ng4-social-login&#39;;
+
+let config = new AuthServiceConfig([
+  {
+    id: GoogleLoginProvider.PROVIDER_ID,
+    provider: new GoogleLoginProvider(&#39;Google-OAuth-Client-Id&#39;)
+  },
+  {
+    id: FacebookLoginProvider.PROVIDER_ID,
+    provider: new FacebookLoginProvider(&#39;Facebook-App-Id&#39;)
+  },
+  {
+    id: LinkedinLoginProvider.PROVIDER_ID,
+    provider: new LinkedinLoginProvider(&#39;LINKEDIN_CLIENT_ID&#39;)
+  }
+]);
+
+&#64;NgModule({
+  declarations: [
+    ...
+  ],
+  imports: [
+    ...
+    SocialLoginModule.initialize(config)
+  ],
+  providers: [],
+  bootstrap: [...]
+})
+export class AppModule { }</code></pre><h3 id="sign-in-and-out-users">Sign in and out users</h3>
+<pre class="line-numbers"><code class="language-javascript">import { 
+  AuthService 
+  FacebookLoginProvider, 
+  GoogleLoginProvider,
+  LinkedinLoginProvider
+} from &#39;ng4-social-login&#39;;
+
+&#64;Component({
+  selector: &#39;app-demo&#39;,
+  templateUrl: &#39;./demo.component.html&#39;,
+  styleUrls: [&#39;./demo.component.css&#39;]
+})
+export class DemoComponent implements OnInit {
+
+  constructor(private authService: AuthService) { }
+
+  signInWithGoogle(): void {
+    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
+  }
+
+  signInWithFB(): void {
+    this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);
+  }
+
+  signInWithLinkedIN(): void {
+    this.authService.signIn(LinkedinLoginProvider.PROVIDER_ID);
+  }
+
+  signOut(): void {
+    this.authService.signOut();
+  }
+
+}</code></pre><h3 id="subscribe-to-the-authentication-state">Subscribe to the authentication state</h3>
+<p>You are notified when user logs in or logs out. You receive a <code>SocialUser</code> object when the user logs in and a <code>null</code> when the user logs out. <code>SocialUser</code> object contains basic user information such as name, email, photo URL, etc.</p>
+<pre class="line-numbers"><code class="language-javascript">import { AuthService } from &#39;ng4-social-login&#39;;
+import { SocialUser } from &#39;ng4-social-login&#39;;
+
+&#64;Component({
+  selector: &#39;app-demo&#39;,
+  templateUrl: &#39;./demo.component.html&#39;,
+  styleUrls: [&#39;./demo.component.css&#39;]
+})
+export class DemoComponent implements OnInit {
+
+  private user: SocialUser;
+  private loggedIn: boolean;
+
+  constructor(private authService: AuthService) { }
+
+  ngOnInit() {
+    this.authService.authState.subscribe((user) =&gt; {
+      this.user = user;
+      this.loggedIn = (user != null);
+    });
+  }
+
+}</code></pre><h3 id="display-the-user-information">Display the user information</h3>
+<pre class="line-numbers"><code class="language-html">&lt;img src=&#39;{{ user.photoUrl }}&#39;&gt;
+&lt;div&gt;
+  &lt;h4&gt;{{ user.name }}&lt;/h4&gt;
+  &lt;p&gt;{{ user.email }}&lt;/p&gt;
+&lt;/div&gt;</code></pre><h2 id="building-with-aot">Building with AoT</h2>
+<p>If you are facing issue in building your app with AoT, check <a href="https://github.com/sarfarazansari/angular4-social-login/blob/master/README-AOT.md">this document</a>.</p>
+<h2 id="running-the-demo-app-on-locally">Running the demo app on locally</h2>
+<pre class="line-numbers"><code class="language-sh">npm run build
+cd demo &amp;&amp; ng serve</code></pre><h2 id="contributing-to-project">Contributing to project</h2>
+<pre class="line-numbers"><code class="language-sh">cd demo &amp;&amp; ng serve
+make changes in files of  demo&gt;src&gt;app&gt;social&gt;
+when you completed feature/bug copy all .ts files of social folder into main src folder
+and push to repo. rest of things I\&#39;ll take care</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+           </div>
+       </div>
+
+       <script src="./js/libs/bootstrap-native.js"></script>
+
+       <script src="./js/libs/es6-shim.min.js"></script>
+       <script src="./js/libs/EventDispatcher.js"></script>
+       <script src="./js/libs/promise.min.js"></script>
+       <script src="./js/libs/zepto.min.js"></script>
+
+       <script src="./js/compodoc.js"></script>
+
+       <script>var COMPODOC_CURRENT_PAGE_DEPTH = 0;</script>
+
+       <script src="./js/search/search.js"></script>
+       <script src="./js/search/lunr.min.js"></script>
+       <script src="./js/search/search-lunr.js"></script>
+
+       <script src="./js/tabs.js"></script>
+       <script src="./js/menu.js"></script>
+       <script src="./js/libs/prism.js"></script>
+       <script src="./js/sourceCode.js"></script>
+       <script src="./js/search/search_index.js"></script>
+
+    </body>
 </html>

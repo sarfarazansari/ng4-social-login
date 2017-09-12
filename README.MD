@@ -146,8 +146,5 @@ cd demo && ng serve
 
 ## Contributing to project
 ```sh
-cd demo && ng serve
-make changes in files of  demo>src>app>social>
-when you completed feature/bug copy all .ts files of social folder into main src folder
-and push to repo. rest of things I\'ll take care
+you are welcome to report an issue or creating a pull request.
 ```
