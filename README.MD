@@ -33,7 +33,7 @@ import {
   LinkedinLoginProvider
 } from 'ng4-social-login';
 
-let config = new AuthServiceConfig([
+const CONFIG = new AuthServiceConfig([
   {
     id: GoogleLoginProvider.PROVIDER_ID,
     provider: new GoogleLoginProvider('Google-OAuth-Client-Id')
@@ -48,15 +48,24 @@ let config = new AuthServiceConfig([
   }
 ]);
 
+export function provideConfig() {
+  return CONFIG;
+}
+
 @NgModule({
   declarations: [
     ...
   ],
   imports: [
     ...
-    SocialLoginModule.initialize(config)
+    SocialLoginModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: AuthServiceConfig,
+      useFactory: provideConfig
+    }
+  ],
   bootstrap: [...]
 })
 export class AppModule { }
