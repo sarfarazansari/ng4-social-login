@@ -144,13 +144,6 @@ export class DemoComponent implements OnInit {
 
 If you are facing issue in building your app with AoT, check [this document](https://github.com/sarfarazansari/angular4-social-login/blob/master/README-AOT.md).
 
-## Running the demo app on locally
-
-```sh
-npm run build
-cd demo && ng serve
-```
-
 ## Contributing to project
 ```sh
 you are welcome to report an issue or creating a pull request.
