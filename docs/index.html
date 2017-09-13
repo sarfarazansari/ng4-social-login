@@ -357,7 +357,7 @@ Supports authentication with <strong>Google</strong>, <strong>Linkedin</strong> 
   LinkedinLoginProvider
 } from &#39;ng4-social-login&#39;;
 
-let config = new AuthServiceConfig([
+const CONFIG = new AuthServiceConfig([
   {
     id: GoogleLoginProvider.PROVIDER_ID,
     provider: new GoogleLoginProvider(&#39;Google-OAuth-Client-Id&#39;)
@@ -372,15 +372,24 @@ let config = new AuthServiceConfig([
   }
 ]);
 
+export function provideConfig() {
+  return CONFIG;
+}
+
 &#64;NgModule({
   declarations: [
     ...
   ],
   imports: [
     ...
-    SocialLoginModule.initialize(config)
+    SocialLoginModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: AuthServiceConfig,
+      useFactory: provideConfig
+    }
+  ],
   bootstrap: [...]
 })
 export class AppModule { }</code></pre><h3 id="sign-in-and-out-users">Sign in and out users</h3>

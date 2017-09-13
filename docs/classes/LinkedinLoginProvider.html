@@ -626,7 +626,7 @@
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/providers/linkedin-login-provider.ts:54</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/providers/linkedin-login-provider.ts:55</a></div>
                                         </td>
                                     </tr>
             
@@ -658,7 +658,7 @@
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">src/providers/linkedin-login-provider.ts:64</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">src/providers/linkedin-login-provider.ts:65</a></div>
                                         </td>
                                     </tr>
             
@@ -793,6 +793,7 @@ export class LinkedinLoginProvider extends BaseLoginProvider {
     user.name &#x3D; response.firstName + &#x27; &#x27; + response.lastName;
     user.email &#x3D; response.emailAddress;
     user.photoUrl &#x3D; response.pictureUrl;
+    user.token &#x3D; IN.ENV.auth.oauth_token;
     return user;
   }
 
