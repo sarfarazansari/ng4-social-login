@@ -48,6 +48,7 @@ export class LinkedinLoginProvider extends BaseLoginProvider {
     user.name = response.firstName + ' ' + response.lastName;
     user.email = response.emailAddress;
     user.photoUrl = response.pictureUrl;
+    user.token = IN.ENV.auth.oauth_token;
     return user;
   }
 

@@ -13,6 +13,10 @@ let config = new AuthServiceConfig([
   {
     id: FacebookLoginProvider.PROVIDER_ID,
     provider: new FacebookLoginProvider("Facebook-App-Id")
+  },
+  {
+    id: LinkedinLoginProvider.PROVIDER_ID,
+    provider: new LinkedinLoginProvider('LINKEDIN_CLIENT_ID')
   }
 ]);
 
