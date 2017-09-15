@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 
-import { Observable, BehaviorSubject } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 import { LoginProvider } from './entities/login-provider';
 import { SocialUser } from './entities/user';
@@ -67,12 +68,14 @@ export class AuthService {
 
   signOut(): Promise<any> {
     return new Promise((resolve, reject) => {
-      let providerId = this._user.provider;
-      let providerObject = this.providers.get(providerId);
-      if (providerObject) {
+      if (this._user && this._user.provider) {
+        let providerId = this._user.provider;
+        let providerObject = this.providers.get(providerId);
         providerObject.signOut().then(() => {
-          resolve();
           this._user = null;
+          this._authState.next(null);
+          resolve();
+        }).catch((err) => {
           this._authState.next(null);
         });
       } else {

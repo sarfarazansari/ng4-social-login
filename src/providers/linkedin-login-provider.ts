@@ -26,7 +26,9 @@ export class LinkedinLoginProvider extends BaseLoginProvider {
 
           IN.Event.on(IN, 'auth', () => {
             if (IN.User.isAuthorized()) {
-              IN.API.Raw('/people/~:(id,first-name,last-name,email-address,picture-url)').result( (res: LinkedInResponse) => {
+              IN.API.Raw(
+                '/people/~:(id,first-name,last-name,email-address,picture-url)'
+              ).result( (res: LinkedInResponse) => {
                 resolve(this.drawUser(res));
               });
             }
@@ -66,6 +68,8 @@ export class LinkedinLoginProvider extends BaseLoginProvider {
     return new Promise((resolve, reject) => {
       IN.User.logout((response: any) => {
         resolve();
+      }, (err: any) => {
+        reject(err);
       });
     });
   }
