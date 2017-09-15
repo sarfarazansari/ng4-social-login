@@ -501,7 +501,7 @@
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/providers/linkedin-login-provider.ts:45</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/providers/linkedin-login-provider.ts:47</a></div>
                                         </td>
                                     </tr>
             
@@ -594,7 +594,7 @@
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/providers/linkedin-login-provider.ts:39</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/providers/linkedin-login-provider.ts:41</a></div>
                                         </td>
                                     </tr>
             
@@ -626,7 +626,7 @@
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/providers/linkedin-login-provider.ts:55</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">src/providers/linkedin-login-provider.ts:57</a></div>
                                         </td>
                                     </tr>
             
@@ -658,7 +658,7 @@
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">src/providers/linkedin-login-provider.ts:65</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">src/providers/linkedin-login-provider.ts:67</a></div>
                                         </td>
                                     </tr>
             
@@ -771,7 +771,9 @@ export class LinkedinLoginProvider extends BaseLoginProvider {
 
           IN.Event.on(IN, &#x27;auth&#x27;, () &#x3D;&gt; {
             if (IN.User.isAuthorized()) {
-              IN.API.Raw(&#x27;/people/~:(id,first-name,last-name,email-address,picture-url)&#x27;).result( (res: LinkedInResponse) &#x3D;&gt; {
+              IN.API.Raw(
+                &#x27;/people/~:(id,first-name,last-name,email-address,picture-url)&#x27;
+              ).result( (res: LinkedInResponse) &#x3D;&gt; {
                 resolve(this.drawUser(res));
               });
             }
@@ -811,6 +813,8 @@ export class LinkedinLoginProvider extends BaseLoginProvider {
     return new Promise((resolve, reject) &#x3D;&gt; {
       IN.User.logout((response: any) &#x3D;&gt; {
         resolve();
+      }, (err: any) &#x3D;&gt; {
+        reject(err);
       });
     });
   }
