@@ -29,8 +29,9 @@ export class FacebookLoginProvider extends BaseLoginProvider {
 
           FB.getLoginStatus(function (response: any) {
             if (response.status === 'connected') {
+              const accessToken = FB.getAuthResponse()['accessToken'];
               FB.api('/me?fields=name,email,picture', (res: any) => {
-                resolve(this.drawUser(res));
+                resolve(FacebookLoginProvider.drawUser(Object.assign({}, {token: accessToken}, res)));
               });
             }
           });
@@ -38,11 +39,12 @@ export class FacebookLoginProvider extends BaseLoginProvider {
     });
   }
 
-  drawUser(response: any): SocialUser {
+  static drawUser(response: any): SocialUser {
     let user: SocialUser = new SocialUser();
     user.id = response.id;
     user.name = response.name;
     user.email = response.email;
+    user.token = response.token;
     user.photoUrl = 'https://graph.facebook.com/' + response.id + '/picture?type=normal';
     return user;
   }
@@ -51,8 +53,9 @@ export class FacebookLoginProvider extends BaseLoginProvider {
     return new Promise((resolve, reject) => {
       FB.login((response: any) => {
         if (response.authResponse) {
+          const accessToken = FB.getAuthResponse()['accessToken'];
           FB.api('/me?fields=name,email,picture', (res: any) => {
-            resolve(this.drawUser(res));
+            resolve(FacebookLoginProvider.drawUser(Object.assign({}, {token: accessToken}, res)));
           });
         }
       }, { scope: 'email,public_profile' });
