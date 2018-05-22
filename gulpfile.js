@@ -84,7 +84,8 @@ gulp.task('rollup:fesm', function () {
       // See https://github.com/rollup/rollup/wiki/JavaScript-API#external
       external: [
         '@angular/core',
-        '@angular/common'
+        '@angular/common',
+        'rxjs/BehaviorSubject'
       ],
 
       // Format of generated bundle
