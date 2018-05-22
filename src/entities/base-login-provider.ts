@@ -2,8 +2,8 @@ import { LoginProvider } from './login-provider';
 import { SocialUser, LoginProviderClass } from './user';
 
 export abstract class BaseLoginProvider implements LoginProvider {
-  constructor() {}
-
+  constructor() { }
+  abstract isInitialize: boolean;
   abstract initialize(): Promise<SocialUser>;
   abstract signIn(): Promise<SocialUser>;
   abstract signOut(): Promise<any>;

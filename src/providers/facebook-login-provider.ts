@@ -4,7 +4,7 @@ import { SocialUser, LoginProviderClass } from '../entities/user';
 declare let FB: any;
 
 export class FacebookLoginProvider extends BaseLoginProvider {
-
+  public isInitialize: boolean;
   public static readonly PROVIDER_ID = 'FACEBOOK';
   public loginProviderObj: LoginProviderClass = new LoginProviderClass();
 
@@ -25,6 +25,7 @@ export class FacebookLoginProvider extends BaseLoginProvider {
             xfbml: true,
             version: 'v2.9'
           });
+          this.isInitialize = true;
           FB.AppEvents.logPageView();
 
           FB.getLoginStatus(function (response: any) {

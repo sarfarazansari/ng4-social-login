@@ -4,7 +4,7 @@ import { SocialUser, LoginProviderClass, LinkedInResponse } from '../entities/us
 declare let IN: any;
 
 export class LinkedinLoginProvider extends BaseLoginProvider {
-
+  public isInitialize: boolean;
   public static readonly PROVIDER_ID = 'LINKEDIN';
   public loginProviderObj: LoginProviderClass = new LoginProviderClass();
 
@@ -18,23 +18,23 @@ export class LinkedinLoginProvider extends BaseLoginProvider {
   initialize(): Promise<SocialUser> {
     return new Promise((resolve, reject) => {
       this.loadScript(this.loginProviderObj, () => {
-          IN.init({
-            api_key: this.clientId,
-            authorize: true,
-            onLoad: this.onLinkedInLoad()
-          });
-
-          IN.Event.on(IN, 'auth', () => {
-            if (IN.User.isAuthorized()) {
-              IN.API.Raw(
-                '/people/~:(id,first-name,last-name,email-address,picture-url)'
-              ).result( (res: LinkedInResponse) => {
-                resolve(this.drawUser(res));
-              });
-            }
-          });
-
+        IN.init({
+          api_key: this.clientId,
+          authorize: true,
+          onLoad: this.onLinkedInLoad()
         });
+        this.isInitialize = true;
+        IN.Event.on(IN, 'auth', () => {
+          if (IN.User.isAuthorized()) {
+            IN.API.Raw(
+              '/people/~:(id,first-name,last-name,email-address,picture-url)'
+            ).result((res: LinkedInResponse) => {
+              resolve(this.drawUser(res));
+            });
+          }
+        });
+
+      });
     });
   }
 
@@ -56,8 +56,8 @@ export class LinkedinLoginProvider extends BaseLoginProvider {
 
   signIn(): Promise<SocialUser> {
     return new Promise((resolve, reject) => {
-      IN.User.authorize( () => {
-        IN.API.Raw('/people/~:(id,first-name,last-name,email-address,picture-url)').result( (res: LinkedInResponse) => {
+      IN.User.authorize(() => {
+        IN.API.Raw('/people/~:(id,first-name,last-name,email-address,picture-url)').result((res: LinkedInResponse) => {
           resolve(this.drawUser(res));
         });
       });
