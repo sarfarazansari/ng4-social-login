@@ -33,6 +33,11 @@ import {
   LinkedinLoginProvider
 } from 'ng4-social-login';
 
+/** 
+ * config takes two params
+ * 1. Provider config array
+ * 2. Boolean to auto logged
+ */
 const CONFIG = new AuthServiceConfig([
   {
     id: GoogleLoginProvider.PROVIDER_ID,
@@ -46,7 +51,7 @@ const CONFIG = new AuthServiceConfig([
     id: LinkedinLoginProvider.PROVIDER_ID,
     provider: new LinkedinLoginProvider('LINKEDIN_CLIENT_ID')
   }
-]);
+], true);
 
 export function provideConfig() {
   return CONFIG;
