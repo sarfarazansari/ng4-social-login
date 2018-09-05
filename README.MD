@@ -5,6 +5,10 @@ This is the refrenced library from [angular4-social-login](https://abacritt.gith
 Social login and authentication module for Angular 4. 
 Supports authentication with **Google**, **Linkedin** and **Facebook**.
 
+## For Angular version >= 6
+
+For angular version >= 6 check out [ng-social-login-module](https://github.com/sarfarazansari/ng-social-login-module).
+
 
 
 ## Getting started
